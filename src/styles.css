@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    /* Degradado entre Honey Oatmilk y Coconut Cream */
+    background: linear-gradient(135deg, #F6EAD4 0%, #FFFAF2 100%);
+    min-height: 100vh;
+}

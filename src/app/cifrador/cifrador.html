@@ -1,0 +1,79 @@
+<div class="container my-5 pb-5" style="max-width: 800px;">
+  <div class="card shadow-lg">
+    <div class="card-header bg-dark text-white text-center py-3">
+      <h2 class="mb-0">Criptografía: César y Atbash</h2>
+    </div>
+    
+    <div class="card-body bg-light">
+
+      <div class="mb-4 mt-2">
+        <label class="form-label fw-bold">1. Define el conjunto de caracteres:</label>
+        
+        <select class="form-select mb-3 border-rosa" [(ngModel)]="presetSeleccionado" (change)="onPresetChange()">
+          <option value="ascii">Todos los Caracteres (ASCII + Español)</option>
+          <option value="minusculas">Solo Minúsculas (a-z)</option>
+          <option value="mayusculas">Solo Mayúsculas (A-Z)</option>
+          <option value="hexadecimal">Hexadecimal (0-9, A-F)</option>
+          <option value="alfanumerico">Alfanumérico (Letras y Números)</option>
+        </select>
+
+      <div class="row mb-4">
+        <div class="col-md-6">
+          <label class="form-label fw-bold">Selecciona el Módulo:</label>
+          <select class="form-select" [(ngModel)]="metodoCifrado">
+            <option value="cesar">Cifrado César</option>
+            <option value="atbash">Cifrado Atbash</option>
+          </select>
+        </div>
+        
+        <div class="col-md-6 mt-3 mt-md-0">
+          <label class="form-label fw-bold">Acción a realizar:</label>
+          <select class="form-select" [(ngModel)]="action">
+            <option value="cifrar">Cifrar</option>
+            <option value="descifrar">Descifrar</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="mb-4" *ngIf="metodoCifrado === 'cesar'">
+        <label class="form-label fw-bold text-rosa">Posiciones a desplazar:</label>
+        <input type="number" class="form-control border-rosa" [(ngModel)]="shift" min="1">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label fw-bold">Texto de Entrada:</label>
+        
+        <textarea class="form-control" rows="3" 
+                  [(ngModel)]="inputText" 
+                  (ngModelChange)="limpiarTexto()"
+                  placeholder="Escribe tu mensaje aquí..."></textarea>
+                  
+        <small class="text-muted mt-1 d-block text-rosa">
+          <i class="bi bi-info-circle"></i> Solo se permiten caracteres del conjunto seleccionado. Los inválidos se descartarán automáticamente.
+        </small>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label fw-bold">Resultado:</label>
+        <textarea class="form-control text-white bg-dark mb-2" rows="3" readonly [value]="outputText" placeholder="El texto procesado aparecerá aquí automáticamente..."></textarea>
+        
+        
+
+        <div class="d-flex gap-2">
+            <button class="btn w-50 fw-bold" 
+                    [ngClass]="copiadoExitoso ? 'btn-success' : 'btn-outline-primary'" 
+                    (click)="copiarAlPortapapeles()" 
+                    [disabled]="!outputText">
+                {{ copiadoExitoso ? '¡Copiado!' : 'Copiar Resultado' }}
+            </button>
+            
+            <button class="btn btn-outline-secondary w-50 fw-bold" 
+                    (click)="invertirProceso()" 
+                    [title]="'Toma el resultado y lo ' + (action === 'cifrar' ? 'descifra' : 'cifra')"
+                    [disabled]="!outputText">
+                🔄 Probar {{ action === 'cifrar' ? 'Descifrado' : 'Cifrado' }}
+            </button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,80 @@
+/* PALETA DIETITIAN */
+.custom-card {
+    background-color: #DCD4C1 !important; /* Oat Latte */
+    border: none !important;
+    border-radius: 20px !important;
+}
+
+.card-header {
+    background-color: #9CA764 !important; /* Savory Sage */
+    color: #FFFAF2 !important; /* Coconut Cream */
+    border-bottom: none;
+}
+
+.form-label { color: #9CA764; letter-spacing: 0.5px; }
+.accent-text { color: #DDBAAE !important; /* Blush Beet */ }
+.text-muted { color: #9CA764 !important; opacity: 0.8; }
+
+.form-control, .form-select {
+    background-color: #FFFAF2 !important; /* Coconut Cream */
+    border: 2px solid #C2C395; /* Avocado Smoothie */
+    border-radius: 12px;
+    color: #9CA764 !important;
+    padding: 12px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+    box-shadow: 0 0 0 0.25rem rgba(194, 195, 149, 0.4);
+    border-color: #9CA764 !important;
+}
+
+.readonly-box {
+    background-color: #EFD7CF !important; /* Peach Protein */
+    border-color: #DDBAAE !important;
+}
+
+.result-box {
+    background-color: #9CA764 !important; /* Savory Sage */
+    color: #FFFAF2 !important;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.1em;
+    border: none;
+}
+
+.btn-action { border-radius: 12px; padding: 12px; transition: all 0.3s ease; }
+.btn-action:hover:not(:disabled) { transform: translateY(-2px); }
+
+.btn-primary-custom {
+    background-color: transparent; border: 2px solid #818263; color: #818263;
+}
+.btn-primary-custom:hover:not(:disabled) {
+    background-color: #9CA764; color: #FFFAF2;
+}
+
+.btn-success-custom {
+    background-color: #C2C395 !important; border: 2px solid #C2C395 !important; color: #818263 !important;
+}
+
+.btn-secondary-custom {
+    background-color: transparent; border: 2px solid #DDBAAE; color: #DDBAAE;
+}
+.btn-secondary-custom:hover:not(:disabled) {
+    background-color: #DDBAAE; color: #fff;
+}
+.btn:disabled { opacity: 0.5; }
+
+.text-rosa {
+    color: #e17379  !important; 
+}
+
+.border-rosa {
+    border-color: #e17379 !important; 
+    border-width: 2px; /* Un poco más grueso para que el rosa se note bien */
+}
+
+/* Opcional: Para que al darle clic a la caja también se ilumine en rosa */
+.border-rosa:focus {
+    box-shadow: 0 0 0 0.25rem rgba(221, 186, 174, 0.4) !important;
+    border-color: #e17379  !important;
+}
