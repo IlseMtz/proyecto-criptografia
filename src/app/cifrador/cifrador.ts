@@ -31,10 +31,21 @@ export class Cifrador {
 
   // [A1]
   onPresetChange() {
-    this.alphabet = this.presets[this.presetSeleccionado as keyof typeof this.presets];
-    this.limpiarTexto(); // El menú actualiza el abecedario y limpia el texto inmediatamente
+    if (this.presetSeleccionado === 'personalizado') {
+      // Si eligen personalizado, limpiamos el abecedario para que escriban desde cero
+      this.alphabet = ''; 
+    } else {
+      // Si eligen una opción predefinida, cargamos el diccionario
+      this.alphabet = this.presets[this.presetSeleccionado as keyof typeof this.presets];
+    }
+    this.limpiarTexto(); // Limpiamos el texto inmediatamente
   }
 
+  // NUEVA FUNCIÓN: Se ejecuta cada vez que el usuario teclea algo en su abecedario personalizado
+  onCustomAlphabetChange() {
+    // Volvemos a limpiar el texto de entrada por si el usuario borró una letra de su abecedario
+    this.limpiarTexto();
+  }
   // [B]
   limpiarTexto() {// Filtra el texto de entrada
     if (!this.inputText) return;

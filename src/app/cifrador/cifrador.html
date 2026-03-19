@@ -15,7 +15,20 @@
           <option value="mayusculas">Solo Mayúsculas (A-Z)</option>
           <option value="hexadecimal">Hexadecimal (0-9, A-F)</option>
           <option value="alfanumerico">Alfanumérico (Letras y Números)</option>
+          <option value="personalizado">Personalizado (Escrito a mano)</option>
         </select>
+
+        <div class="mb-3" *ngIf="presetSeleccionado === 'personalizado'">
+          <label class="form-label fw-bold text-rosa">Escribe tu alfabeto personalizado:</label>
+          <textarea class="form-control border-rosa" rows="2" 
+                    [(ngModel)]="alphabet" 
+                    (ngModelChange)="onCustomAlphabetChange()"
+                    placeholder="Ejemplo: abcde12345..."></textarea>
+          <small class="text-muted mt-1 d-block">
+            <i class="bi bi-info-circle"></i> Evita repetir caracteres para que el cifrado matemático sea exacto.
+          </small>
+        </div>
+      </div>
 
       <div class="row mb-4">
         <div class="col-md-6">
